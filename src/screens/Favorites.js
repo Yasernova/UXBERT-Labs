@@ -1,11 +1,11 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { Text } from '../components';
+import MovieCard from '../components/MovieCard';
 import styles from './styles/Favorites.styles';
 
 const Favorites = () => (
   <SafeAreaView style={styles.container}>
-    <Text>njkj</Text>
+    <MovieCard />
   </SafeAreaView>
 );
 

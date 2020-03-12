@@ -7,10 +7,11 @@ class ThemeText extends React.Component {
 
   render() {
     const {
-      style, center, bold, fs, clr,
+      style, center, bold, fs, clr, secondary,
     } = this.props;
     const defaultStyle = {
       textAlign: center ? 'center' : 'left',
+      fontFamily: secondary ? 'secondary' : 'primary',
       fontWeight: bold ? 'bold' : 'normal',
       fontSize: Number(fs) || 16,
       color: clr || colors.gray2,
