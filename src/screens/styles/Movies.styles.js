@@ -5,6 +5,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: colors.secondary,
     flex: 1,
+    paddingTop: 5 * vh,
   },
   contentContainerStyle: { flex: 1 },
   inputContainer: {
@@ -18,5 +19,6 @@ export default StyleSheet.create({
   },
   input: {
     flex: 1,
+    fontSize: 20,
   },
 });

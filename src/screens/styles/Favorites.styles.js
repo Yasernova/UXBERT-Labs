@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../theme';
+import { colors, vh } from '../../theme';
 
 export default StyleSheet.create({
   container: {
     backgroundColor: colors.secondary,
     flex: 1,
+    paddingTop: 5 * vh,
   },
 });

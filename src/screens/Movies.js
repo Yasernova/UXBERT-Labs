@@ -34,7 +34,7 @@ const Movies = () => {
         .catch(setError)
         .finally(() => setLoading(false));
     }
-  }, [isFocus]);
+  }, [isFocus, value]);
   const toggleFocus = React.useMemo(() => () => setFocus(!isFocus), [isFocus]);
   const clear = React.useMemo(() => () => {
     setValue('');
@@ -44,18 +44,19 @@ const Movies = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
+      <Text center secondary clr={colors.accent} fs={30}>SEARCH</Text>
       <KeyboardAwareScrollView contentContainerStyle={styles.contentContainerStyle}>
         <View flex jc={isFocus || value ? 'flex-start' : 'center'} ai="center">
-          <View row style={styles.inputContainer}>
+          <View row ai="center" style={styles.inputContainer}>
             <TextInput
               value={value}
               onFocus={toggleFocus}
               onBlur={toggleFocus}
               returnKeyType="search"
-              onSubmitEditing={search}
+              onSubmitEditing={() => search()}
               onChangeText={setValue}
               style={styles.input}
-              placeholder="Search by title, e.g (cast away)"
+              placeholder="Search by title, e.g (joker)"
             />
             <TouchableOpacity onPress={clear}>
               <MaterialIcons name={value.trim() ? 'close' : 'search'} color={colors.accent} size={24} />
@@ -68,7 +69,7 @@ const Movies = () => {
             <Text>
               {error}
               {' '}
-              <MaterialCommunityIcons name="heart-broken" />
+              <MaterialCommunityIcons name="heart-broken" size={18} />
             </Text>
           ) : null}
           {movie ? <MovieCard movie={movie} /> : null}

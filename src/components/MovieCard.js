@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, TouchableOpacity, Share } from 'react-native';
 import { AntDesign, FontAwesome } from 'expo-vector-icons';
+import Favorites from '../contexts/Favorites';
 
 import { View, Text } from '.';
 import { colors } from '../theme';
@@ -13,8 +14,13 @@ const MovieCard = (props) => {
       Poster, Year, Released,
       imdbRating, Plot, imdbVotes, Title,
     } = {},
+    movie,
   } = props;
+
+  const { favorites = {}, updateFavorites } = React.useContext(Favorites);
   const handleShare = React.useMemo(() => () => share(Poster), []);
+  const isFavorite = movie.imdbID in favorites;
+  console.log(favorites);
   return (
     <View row style={styles.container}>
       <Image
@@ -35,23 +41,23 @@ const MovieCard = (props) => {
             {Released}
           </Text>
         </View>
-        <View row ai="center" style={styles.ratingContainer}>
+        <View row ai="center">
           <FontAwesome style={styles.imdb} name="imdb" color="gold" size={26} />
           <Text secondary>{imdbRating}</Text>
           <FontAwesome style={styles.star} name="star" color="gold" size={16} />
           <Text>
             (
             {` ${imdbVotes} `}
-            <FontAwesome style={styles.user} name="user" color={colors.gray1} size={16} />
+            <FontAwesome name="user" color={colors.gray1} size={16} />
             )
           </Text>
         </View>
         <View>
-          <Text fs={12} numberOfLines={3}>{Plot}</Text>
+          <Text fs={10} numberOfLines={3}>{Plot}</Text>
         </View>
         <View row flex jc="space-evenly" ai="flex-end" style={styles.controlsContainer}>
-          <TouchableOpacity>
-            <AntDesign name="hearto" size={30} color={colors.accent} />
+          <TouchableOpacity style={styles.heart} onPress={() => updateFavorites(movie)}>
+            <AntDesign name={isFavorite ? 'heart' : 'hearto'} size={30} color={colors.accent} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleShare} style={styles.controls}>
             <Text secondary>SHARE</Text>

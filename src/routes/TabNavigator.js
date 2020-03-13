@@ -12,14 +12,14 @@ const TabNavigator = createBottomTabNavigator(
       screen: Movies,
       navigationOptions: () => ({
         tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} ico="local-movies" />,
-        tabBarLabel: ({ focused }) => <Text bold clr={focused ? colors.accent : colors.gray4}>MOVIES</Text>,
+        tabBarLabel: ({ focused }) => <Text center bold clr={focused ? colors.accent : colors.gray4}>MOVIES</Text>,
       }),
     },
     Favorites: {
       screen: Favorites,
       navigationOptions: () => ({
         tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} ico="favorite" />,
-        tabBarLabel: ({ focused }) => <Text bold clr={focused ? colors.accent : colors.gray4}>FAVORITES</Text>,
+        tabBarLabel: ({ focused }) => <Text center bold clr={focused ? colors.accent : colors.gray4}>FAVORITES</Text>,
       }),
     },
   },

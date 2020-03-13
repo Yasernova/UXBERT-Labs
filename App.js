@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { FavoriteProvider } from './src/contexts/Favorites';
 import AppContainer from './src/routes';
 
 export default function App() {
@@ -11,5 +12,5 @@ export default function App() {
       secondary: require('./assets/fonts/ArchivoBlack.ttf'),
     }).then(() => setLoadingState(true));
   });
-  return assetsLoaded ? <AppContainer /> : <AppLoading />;
+  return assetsLoaded ? <FavoriteProvider><AppContainer /></FavoriteProvider> : <AppLoading />;
 }
