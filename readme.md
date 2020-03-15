@@ -41,5 +41,5 @@
 
   2. Open this [link](https://exp.host/@yazzer/UXBERT-Labs) using expo app on your phone.
 
-* ### To install the app APK you can download it from [here]().
+* ### To install the app APK you can download it from [here](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40yazzer/UXBERT-Labs-03d671cc4baf4669b621d699f105806d-signed.apk).
 
