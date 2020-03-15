@@ -25,10 +25,12 @@
     ```bash
     cd UXBERT-labs 
     ```
+
     ```
     yarn
     ```
-  3. run project
+
+  3. Run project
     ```
     yarn start
     ```
