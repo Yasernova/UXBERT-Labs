@@ -4,7 +4,10 @@ import { AsyncStorage } from 'react-native';
 const Favorite = React.createContext({});
 
 export class FavoriteProvider extends React.PureComponent {
-  state = { favorites: {} }
+  constructor(props) {
+    super(props);
+    this.state = { favorites: {} };
+  }
 
   initialGet = () => AsyncStorage.getItem('favorites')
     .then(favorites => favorites && this.setState({ favorites: JSON.parse(favorites) }))
