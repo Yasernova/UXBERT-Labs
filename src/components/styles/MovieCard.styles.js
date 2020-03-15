@@ -4,14 +4,14 @@ import { vw, colors } from '../../theme';
 export default StyleSheet.create({
   container: { padding: 5 * vw },
   poster: {
-    width: 150,
-    height: 200,
+    width: 40 * vw,
+    height: 55 * vw,
     resizeMode: 'cover',
   },
   details: { marginLeft: 10 },
   title: { marginBottom: 7 },
   imdb: { marginRight: 10 },
-  star: { marginHorizontal: 10 },
+  star: { marginHorizontal: 3 },
   heart: { flex: 1 },
   controlsContainer: {
     marginTop: 10,

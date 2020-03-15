@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Image, TouchableOpacity, Share } from 'react-native';
 import { AntDesign, FontAwesome } from 'expo-vector-icons';
 import Favorites from '../contexts/Favorites';
@@ -8,10 +8,11 @@ import { colors } from '../theme';
 import styles from './styles/MovieCard.styles';
 
 const share = poster => Share.share({ message: `Checkout this poster! \n ${poster}` });
+
 const MovieCard = (props) => {
   const {
     movie: {
-      Poster, Year, Released,
+      Poster, Year, Released, imdbID,
       imdbRating, Plot, imdbVotes, Title,
     } = {},
     movie,
@@ -19,8 +20,7 @@ const MovieCard = (props) => {
 
   const { favorites = {}, updateFavorites } = React.useContext(Favorites);
   const handleShare = React.useMemo(() => () => share(Poster), []);
-  const isFavorite = movie.imdbID in favorites;
-  console.log(favorites);
+  const isFavorite = imdbID in favorites;
   return (
     <View row style={styles.container}>
       <Image
@@ -29,7 +29,7 @@ const MovieCard = (props) => {
       />
       <View flex style={styles.details}>
         <View style={styles.title}>
-          <Text secondary>{Title}</Text>
+          <Text secondary fs={20}>{Title}</Text>
           <Text fs={16}>
             Year:
             {' '}
@@ -47,7 +47,7 @@ const MovieCard = (props) => {
           <FontAwesome style={styles.star} name="star" color="gold" size={16} />
           <Text>
             (
-            {` ${imdbVotes} `}
+            {`${imdbVotes} `}
             <FontAwesome name="user" color={colors.gray1} size={16} />
             )
           </Text>
@@ -68,5 +68,5 @@ const MovieCard = (props) => {
     </View>
   );
 };
-
-export default MovieCard;
+// using memo will prevent unnecessary rerendering when updating the favorites list
+export default memo(MovieCard);
