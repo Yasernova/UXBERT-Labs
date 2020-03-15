@@ -3,7 +3,7 @@ import {
   StatusBar, SafeAreaView, TouchableOpacity, TextInput,
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { MaterialIcons, MaterialCommunityIcons } from 'expo-vector-icons';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { View, Text } from '../components';
 import styles from './styles/Movies.styles';
 import { colors, vh } from '../theme';

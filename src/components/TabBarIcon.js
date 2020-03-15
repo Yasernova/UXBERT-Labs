@@ -1,5 +1,5 @@
 import React from 'react';
-import { MaterialIcons } from 'expo-vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { colors } from '../theme';
 import View from './View';
 

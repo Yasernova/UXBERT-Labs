@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Image, TouchableOpacity, Share } from 'react-native';
-import { AntDesign, FontAwesome } from 'expo-vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import Favorites from '../contexts/Favorites';
 
 import { View, Text } from '.';
