@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native';
 
 const Favorite = React.createContext({});
 
-export class FavoriteProvider extends React.Component {
+export class FavoriteProvider extends React.PureComponent {
   state = { favorites: {} }
 
   initialGet = () => AsyncStorage.getItem('favorites')
@@ -19,7 +19,7 @@ export class FavoriteProvider extends React.Component {
     const updatedFavorites = movie.imdbID in favorites
       ? Object.values(favorites)
         .filter(m => m.imdbID !== movie.imdbID)
-        .reduce((all, item) => ({ ...all, [item.imdb]: item }), {})
+        .reduce((all, item) => ({ ...all, [item.imdbID]: item }), {})
       : {
         ...favorites,
         [movie.imdbID]: movie,
